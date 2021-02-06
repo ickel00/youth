@@ -243,7 +243,7 @@ function signInfo() {
     })
 }
 
-function withDraw() {
+//function withDraw() {
     return new Promise((resolve, reject) => {
         const url = {
             url: withdrawUrl,
