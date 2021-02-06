@@ -76,11 +76,6 @@ if ($.isNode()) {
           timeArr.push(READTIME[item])
         }
       })
-    Object.keys(YOUTH_WITHDRAWBODY).forEach((item) => {
-        if (YOUTH_WITHDRAWBODY[item]) {
-          drawbodyArr.push(YOUTH_WITHDRAWBODY[item])
-        }
-      })
       console.log(`============ 共${cookiesArr.length}个中青账号  =============\n`)
       console.log(`============ 脚本执行-国际标准时间(UTC)：${new Date().toLocaleString()}  =============\n`)
       console.log(`============ 脚本执行-北京时间(UTC+8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()}  =============\n`)
