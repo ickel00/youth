@@ -11,8 +11,8 @@ let notifyInterval = $.getdata("notifytimes")||50 //通知间隔，默认抽奖�
 const YOUTH_HOST = "https://kd.youth.cn/WebApi/";
 const notify = $.isNode() ? require('./sendNotify') : '';
 const withdrawcash = $.getdata('zqcash')||30 //提现金额
-let withdrawUrl =$.getdata('cashurl_zq')
-let withdrawBody =$.getdata('cashbody_zq')
+let withdrawUrl = 'https://ios.baertt.com/v5/wechat/withdraw2.json'
+let withdrawBody = 'p=9NwGV8Ov71o%3DgW5NEpb6rjb84bkaCQyOq-myT0C-Ktb_kF97hamPuz4ZZk3rmRrVU_m2Z51XN3szZYaCPxNG07BYjyjwYkBVGTfTGYPVecze9u-jGHCQmfvey4yZrPyKR-cA01PbV3h61GBiHFc-skGrpoDK0eliCfJPX7f9_IVT-MEKcW_xpZDOPy_rt0QnHnIHZneIwnT8p-0-meli33N6jhxKzneQSuQm5gsBEivrGZM1l0lmxOk_L5oGd6vCc6K1yoWhR3jQFi30VfWz5KWeiGsuZUPpJj10R2oqz2ic5KSxHFk5BDW2x4Fih7pAJ491kgyAKTGf-iTXw5Fx2_ciZohSWS2hJ1Xm7oaMLjmMlUQGe2YtKv2PVs1PrasbdtrEuvfQ5EA_VtoAXnWdsRdJ9TID6nM6rnFDfcyaCMWZ7pQwSIK5s0qxoMvPFPgJ_inAbmU047HgCXZJ35Nk70IKNgWmzaFcSzm0soz-N0kZo5OAUMne-M5g9JISyOqzte7sKVXJKhCWE9DjgsYOSeg9_Ugu0zzjqATH-5ZesPq5HFlcTLK12ccrg8JSX-IlGYAak6YEokj4wwoo3p3l5zCemlP_I7A5X0Ch44sl8NQSbrROQUwV4E7K94JX-yH4ZmXIQgcr4bVvlIkz_MCWgSvh0bKWVGyGBvCTxgT4MkG171kWX95ecW52w-BFpxzeTvR_8lplZzzytwjLELxqAUeIMOcxtgAfd451m3qWnDUEN3sjCieXZfaBuuhZyZ4933k5krUOCYmnaW3FK2FD4GqwMyDjqPJA20wSNhPHqIHSr7sz_4pJ9Zjk2DDizu9nWDuihHqj5jfh2sfgx5M3H5x5_9rcPoa_2w%3D%3D'
 
 let logs = $.getdata('zqlogs')||false, rotaryscore=0,doublerotary=0,signresult; 
 let cookiesArr = [], signheaderVal = '',
