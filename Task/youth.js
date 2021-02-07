@@ -256,7 +256,7 @@ function withDraw() {
         const url = {
             url: withdrawUrl,
             headers: {
-            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
             body: withdrawBody,
         }
@@ -477,7 +477,7 @@ function comApp() {
         const url = {
             url: `https://ios.baertt.com/v5/mission/msgRed.json`,
             headers: {
-            'User-Agent': 'KDApp/1.8.0 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
             body: articlebodyVal,
         }
@@ -501,7 +501,7 @@ function readArticle() {
         const url = {
             url: `https://ios.baertt.com/v5/article/complete.json`,
             headers: {
-            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
             body: articlebodyVal,
         }
@@ -525,7 +525,7 @@ function Articlered() {
         const url = {
             url: `https://ios.baertt.com/v5/article/red_packet.json`,
             headers: {
-            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
             body: redpbodyVal,
         }
@@ -547,7 +547,7 @@ function readTime() {
         const url = {
             url: `https://ios.baertt.com/v5/user/stay.json`,
             headers: {
-            'User-Agent': 'KDApp/1.8.2 (iPhone; iOS 14.2; Scale/3.00)'
+            'User-Agent': 'Mozilla/5.0 (iPhone; CPU iPhone OS 13_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148'
             },
             body: timebodyVal,
          }
