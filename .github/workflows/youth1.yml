@@ -34,7 +34,7 @@ jobs:
         run: |
           npm install
       - name: '运行 【中青看点】'
-        if: env.YOUTH_HEADER
+        if: env.YOUTH_HEADER1
         run: |
           node Task/youth1.js
         env:
