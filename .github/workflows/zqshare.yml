@@ -26,4 +26,4 @@ jobs:
           npm install cron
       - name: '运行 【zqshare】'
         run: |
-          node Task/youthshare2.js
+          node Task/youthshare1.js
