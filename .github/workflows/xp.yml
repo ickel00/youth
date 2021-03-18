@@ -22,10 +22,9 @@ jobs:
         with:
           node-version: 14.x
       - name: npm install
-        if: env.XP_REFRESHTOKEN
         run: |
           npm install
       - name: '运行 【笑谱】'
-        if: env.XP_REFRESHTOKEN
+        if: env.XP_IBOXPAYVIDEOHEADER
         run: |
           node Task/iboxpay.js
