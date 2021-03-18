@@ -144,13 +144,13 @@ let livecs = 0,
 RT = 30000;
 const refreshtokenArr = [];
 let refreshtokenVal = ``;
-const middlerefreshTOKEN = [];
+let middlerefreshTOKEN = [];
 const iboxpayvideoheaderArr = [];
 let iboxpayvideoheaderVal = ``;
-const middleiboxpayvideoHEADER = [];
+let middleiboxpayvideoHEADER = [];
 const iboxpayvideobodyArr = [];
 let iboxpayvideobodyVal = ``;
-const middleiboxpayvideoBODY = [];
+let middleiboxpayvideoBODY = [];
 if ($.isNode() && COOKIE.datas && COOKIE.datas[0].val != '') {
     console.log(
         `============ cookie方式为：方式一 boxjs复制会话 =============\n`
