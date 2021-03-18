@@ -199,8 +199,7 @@ if (COOKIE.refreshtokenVal) {
         "iboxpayvideobodyVal": COOKIE.iboxpayvideobodyVal.split('\n'),
     }
     Length = XP_COOKIES.refreshtokenVal.length;
-}
-if (!COOKIE.refreshtokenVal) {
+} else if (!COOKIE.refreshtokenVal) {
     if ($.isNode()) {
         Object.keys(middlerefreshTOKEN).forEach((item) => {
             if (middlerefreshTOKEN[item]) {
