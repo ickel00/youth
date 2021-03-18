@@ -144,13 +144,13 @@ let livecs = 0,
 RT = 30000;
 const refreshtokenArr = [];
 let refreshtokenVal = ``;
-let middlerefreshTOKEN = [];
+const middlerefreshTOKEN = [];
 const iboxpayvideoheaderArr = [];
 let iboxpayvideoheaderVal = ``;
-let middleiboxpayvideoHEADER = [];
+const middleiboxpayvideoHEADER = [];
 const iboxpayvideobodyArr = [];
 let iboxpayvideobodyVal = ``;
-let middleiboxpayvideoBODY = [];
+const middleiboxpayvideoBODY = [];
 if ($.isNode() && COOKIE.datas && COOKIE.datas[0].val != '') {
     console.log(
         `============ cookie方式为：方式一 boxjs复制会话 =============\n`
@@ -186,7 +186,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middlerefreshTOKEN = process.env.XP_refreshTOKEN.split(COOKIES_SPLIT);
     } else {
-        middlerefreshTOKEN = [process.env.XP_refreshTOKEN];
+        middlerefreshTOKEN = process.env.XP_refreshTOKEN.split();
     }
     if (
         process.env.XP_iboxpayvideoHEADER &&
@@ -194,7 +194,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middleiboxpayvideoHEADER = process.env.XP_iboxpayvideoHEADER.split(COOKIES_SPLIT);
     } else {
-        middleiboxpayvideoHEADER = [process.env.XP_iboxpayvideoHEADER];
+        middleiboxpayvideoHEADER = process.env.XP_iboxpayvideoHEADER.split();
     }
     if (
         process.env.XP_iboxpayvideoBODY &&
@@ -202,7 +202,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middleiboxpayvideoBODY = process.env.XP_iboxpayvideoBODY.split(COOKIES_SPLIT);
     } else {
-        middleiboxpayvideoBODY = [process.env.XP_iboxpayvideoBODY];
+        middleiboxpayvideoBODY = process.env.XP_iboxpayvideoBODY.split();
     }
 }
 if (COOKIE.refreshtokenVal) {
@@ -397,7 +397,7 @@ console.log(
   ).toLocaleString()} =====================\n`
 );
 console.log(
-    `============ 共 ${$.Length} 个${$.name}账号=============\n`
+    `============ 共 ${Length} 个${$.name}账号=============\n`
 );
 console.log(`============ 提现标准为：${CASH} =============\n`);
 //if (LIVE == 0) {
