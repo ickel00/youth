@@ -12,9 +12,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        XP_refreshTOKEN: ${{ secrets.XP_REFRESHTOKEN }}
-        XP_iboxpayvideoHEADER: ${{ secrets.XP_IBOXPAYVIDEOHEADER }}
-        XP_iboxpayvideoBODY: ${{ secrets.XP_IBOXPAYVIDEOBODY }}
+        XP_refreshTOKEN: ${{ secrets.XP_refreshTOKEN }}
+        XP_iboxpayvideoHEADER: ${{ secrets.XP_iboxpayvideoHEADER }}
+        XP_iboxpayvideoBODY: ${{ secrets.XP_iboxpayvideoBODY }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
@@ -25,6 +25,6 @@ jobs:
         run: |
           npm install
       - name: '运行 【笑谱】'
-        if: env.XP_IBOXPAYVIDEOHEADER
+        if: env.XP_refreshTOKEN
         run: |
           node Task/iboxpay.js
