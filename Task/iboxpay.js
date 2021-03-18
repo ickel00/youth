@@ -186,7 +186,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middlerefreshTOKEN = process.env.XP_refreshTOKEN.split(COOKIES_SPLIT);
     } else {
-        middlerefreshTOKEN = process.env.XP_refreshTOKEN.split();
+        middlerefreshTOKEN = [process.env.XP_refreshTOKEN];
     }
     if (
         process.env.XP_iboxpayvideoHEADER &&
@@ -194,7 +194,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middleiboxpayvideoHEADER = process.env.XP_iboxpayvideoHEADER.split(COOKIES_SPLIT);
     } else {
-        middleiboxpayvideoHEADER = process.env.XP_iboxpayvideoHEADER.split();
+        middleiboxpayvideoHEADER = [process.env.XP_iboxpayvideoHEADER];
     }
     if (
         process.env.XP_iboxpayvideoBODY &&
@@ -202,7 +202,7 @@ if ($.isNode() && process.env.XP_refreshTOKEN) {
     ) {
         middleiboxpayvideoBODY = process.env.XP_iboxpayvideoBODY.split(COOKIES_SPLIT);
     } else {
-        middleiboxpayvideoBODY = process.env.XP_iboxpayvideoBODY.split();
+        middleiboxpayvideoBODY = [process.env.XP_iboxpayvideoBODY];
     }
 }
 if (COOKIE.refreshtokenVal) {
