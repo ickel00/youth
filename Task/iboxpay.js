@@ -152,7 +152,7 @@ if ($.isNode()) {
     // 没有设置 XP_CASH 则默认为 0 不提现
     CASH = process.env.XP_CASH || 0;
     // 没有设置 XP_live 则默认0
-    LIVE = process.env.XP_live || 0;
+    LIVE = process.env.XP_live || 1;
     // 没有设置 XP_phone 则默认为 0 
     phone = process.env.XP_phone || 0;
     // 没有设置 XP_sms 则默认0  不获取TOKEN
@@ -573,7 +573,7 @@ async function all() {
             }
         }
 
-        if (iboxpayvideoheaderVal && iboxpayvideobodyVal && iboxpayvideoheaderVal != '' && iboxpayvideobodyVal != '' && LIVE != 2 && $.splimit.data.isUperLimit == false || LIVE == 888) {
+        if (iboxpayvideoheaderVal && iboxpayvideobodyVal && iboxpayvideoheaderVal != '' && iboxpayvideobodyVal != '' && LIVE != 2 && ($.splimit.data.isUperLimit == false || LIVE == 888)) {
 
             videoHEADER = iboxpayvideoheaderVal.split('&');
             videoBODY = iboxpayvideobodyVal.split('&');
@@ -591,7 +591,7 @@ async function all() {
 
             }
 
-        } else if (!iboxpayvideoheaderVal && !iboxpayvideobodyVal && iboxpayvideoheaderVal == '' && iboxpayvideobodyVal == '') {
+        } else if (!iboxpayvideoheaderVal || !iboxpayvideobodyVal || iboxpayvideoheaderVal == '' || iboxpayvideobodyVal == '') {
             console.log('视频奖励：未获取视频ck\n');
             $.message += '【视频奖励】：未获取视频ck\n'
         } else if (LIVE == 2) {
