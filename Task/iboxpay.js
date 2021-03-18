@@ -160,11 +160,11 @@ if ($.isNode()) {
 
 }
 if ($.isNode() && process.env.XP_refreshTOKEN) {
-    COOKIES_SPLIT = process.env.COOKIES_SPLIT || "\n";
+    COOKIES_SPLIT = process.env.COOKIES_SPLIT || "&";
     console.log(
         `============ cookies分隔符为：${JSON.stringify(
       COOKIES_SPLIT
-    )} =============\n`
+    )} =============&`
     );
     if (
         process.env.XP_refreshTOKEN &&
