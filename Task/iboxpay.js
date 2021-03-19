@@ -674,7 +674,6 @@ function msgShow() {
     })
 }
 
-
 //TOKEN获取  
 function getTOKEN(timeout = 0) {
     return new Promise((resolve) => {
