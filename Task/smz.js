@@ -74,13 +74,14 @@ if (isygkcck = typeof $request !== 'undefined') {
     //$.msg($.name, '【提示】请先获取睡眠赚数据')
     //return;
   //} else 
-  {ygkcurlArr.push($.getdata('ygkcurl'))
-    ygkchdArr.push($.getdata('ygkchd'))
-    let ygkccount = ($.getval('ygkccount') || '1');
-  for (let i = 2; i <= ygkccount; i++) {
-    ygkcurlArr.push($.getdata(`ygkcurl${i}`))
-    ygkchdArr.push($.getdata(`ygkchd${i}`))
-  }
+  {
+	  //ygkcurlArr.push($.getdata('ygkcurl'))
+    //ygkchdArr.push($.getdata('ygkchd'))
+    //let ygkccount = ($.getval('ygkccount') || '1');
+  //for (let i = 2; i <= ygkccount; i++) {
+    //ygkcurlArr.push($.getdata(`ygkcurl${i}`))
+    //ygkchdArr.push($.getdata(`ygkchd${i}`))
+  //}
     //console.log(`------------- 共${ygkchdArr.length}个账号-------------\n`)
       for (let i = 0; i < ygkchdArr.length; i++) {
         if (ygkchdArr[i]) {
