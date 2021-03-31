@@ -44,13 +44,13 @@ const hlyyurlArr = [], hlyyhdArr = [],hlyybodyArr = [],hlyycount = ''
 let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
-let hlyybody = ''
-//let hlyybody = $.getdata('hlyybody')
+let hlyybody = $.getdata('hlyybody')
 let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz=''
 
 if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     hlyyurlArr.push($.getdata('hlyyurl'))
     hlyyhdArr.push($.getdata('hlyyhd'))
+    hlyybodyArr.push($.getdata('hlyybody'))	
 } else {
     if($.isNode()){
     if (process.env.HLYY_HD && process.env.HLYY_HD.indexOf('\n') > -1) {
@@ -63,10 +63,16 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     } else {
         hlyyurl = [process.env.HLYY_URL]
     };
+    if (process.env.HLYY_BODY && process.env.HLYY_BODY.indexOf('\n') > -1) {
+        hlyybody = process.env.HLYY_BODY.split('\n');
+    } else {
+        hlyybody = [process.env.HLYY_BODY]
+    };	
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime() + 60 * 60 * 1000).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&hlyyhd.indexOf("\n")>-1){
    hlyyhd = hlyyhd.split("&")
    hlyyurl = hlyyurl.split("&")
+   hlyybody = hlyybody.split("&")  
 };
     Object.keys(hlyyhd).forEach((item) =>{
         if (hlyyhd[item]) {
@@ -78,6 +84,11 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
             hlyyurlArr.push(hlyyurl[item])
         }
     });	
+    Object.keys(hlyybody).forEach((item) =>{
+        if (hlyybody[item]) {
+            hlyybodyArr.push(hlyybody[item])
+        }
+    });		
  console.log(` ============= 您共提供${hlyyhdArr.length}个葫芦音乐账号 =============`);
 }
 
