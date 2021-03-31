@@ -164,10 +164,10 @@ $.log(hlyybody)
 function hlyylb(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
-      if (typeof $.getdata('hlyyhd') === "undefined") {
-        $.msg($.name,"",'请先获取葫芦音乐数据!😓',)
-        $.done()
-      }
+      //if (typeof $.getdata('hlyyhd') === "undefined") {
+        //$.msg($.name,"",'请先获取葫芦音乐数据!😓',)
+        //$.done()
+      //}
 
 ut = hlyyurl.match(/ut=(.*)/)[1]
 id = hlyyurl.match(/deviceId=(.+?)&/)[1]
