@@ -156,7 +156,7 @@ $.log(hlyybody)
 //葫芦音乐列表
 function hlyylb(timeout = 0) {
   return new Promise((resolve) => {
-    //setTimeout( ()=>{
+    setTimeout( ()=>{
       //if (typeof $.getdata('hlyyhd') === "undefined") {
         //$.msg($.name,"",'请先获取葫芦音乐数据!😓',)
         //$.done()
