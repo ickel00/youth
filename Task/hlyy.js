@@ -92,25 +92,21 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
  console.log(` ============= 您共提供${hlyyhdArr.length}个葫芦音乐账号 =============`);
 }
 
-if (ishlyyck = typeof $request !== 'undefined') {
-   hlyyck();
-   $.done()
-};
-
 !(async () => {
-  if (!hlyyhd[0]) {
-    $.msg($.name, '【提示】请先获取葫芦音乐一header')
-    return;
-  } else {hlyyurlArr.push($.getdata('hlyyurl'))
-    hlyyhdArr.push($.getdata('hlyyhd'))
-    hlyybodyArr.push($.getdata('hlyybody'))
+  if (ishlyyck = typeof $request !== "undefined") {
+    await hlyyck()
+   
+  } else {
+	//hlyyurlArr.push($.getdata('hlyyurl'))
+    //hlyyhdArr.push($.getdata('hlyyhd'))
+    //hlyybodyArr.push($.getdata('hlyybody'))
     let hlyycount = ($.getval('hlyycount') || '1');
   for (let i = 2; i <= hlyycount; i++) {
     hlyyurlArr.push($.getdata(`hlyyurl${i}`))
     hlyyhdArr.push($.getdata(`hlyyhd${i}`))
     hlyybodyArr.push($.getdata(`hlyybody${i}`))
   }
-    //console.log(`------------- 共${hlyyhdArr.length}个账号-------------\n`)
+    console.log(`------------- 共${hlyyhdArr.length}个账号-------------\n`)
       for (let i = 0; i < hlyyhdArr.length; i++) {
         if (hlyyhdArr[i]) {
           hlyybody = hlyybodyArr[i];
@@ -168,10 +164,10 @@ $.log(hlyybody)
 function hlyylb(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
-      //if (typeof $.getdata('hlyyhd') === "undefined") {
-        //$.msg($.name,"",'请先获取葫芦音乐数据!😓',)
-        //$.done()
-      //}
+      if (typeof $.getdata('hlyyhd') === "undefined") {
+        $.msg($.name,"",'请先获取葫芦音乐数据!😓',)
+        $.done()
+      }
 
 ut = hlyyurl.match(/ut=(.*)/)[1]
 id = hlyyurl.match(/deviceId=(.+?)&/)[1]
