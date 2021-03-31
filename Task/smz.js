@@ -36,20 +36,20 @@ if(!$.isNode()&&ygkchd.indexOf("\n") ==-1){
     ygkchdArr.push($.getdata('ygkchd'))
 } else {
     if($.isNode()){
-    if (process.env.YGQC_HD && process.env.YGQC_HD.indexOf('\n') > -1) {
-        ygkchd = process.env.YGQC_HD.split('\n');
+    if (process.env.YGKC_HD && process.env.YGKC_HD.indexOf('\n') > -1) {
+        ygkchd = process.env.YGKC_HD.split('\n');
     } else {
-        ygkchd = [process.env.YGQC_HD]
+        ygkchd = [process.env.YGKC_HD]
     };
-    if (process.env.YGQC_URL && process.env.YGQC_URL.indexOf('\n') > -1) {
-        ygkcurl = process.env.YGQC_URL.split('\n');
+    if (process.env.YGKC_URL && process.env.YGKC_URL.indexOf('\n') > -1) {
+        ygkcurl = process.env.YGKC_URL.split('\n');
     } else {
-        ygkcurl = [process.env.YGQC_URL]
+        ygkcurl = [process.env.YGKC_URL]
     };
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime() + 8 * 60 * 60 * 1000).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&ygkchd.indexOf("\n")>-1){
-   ygkchd = ygkchd.split("\n")
-   ygkcurl = ygkcurl.split("\n")
+   ygkchd = ygkchd.split("&")
+   ygkcurl = ygkcurl.split("&")
 };
     Object.keys(ygkchd).forEach((item) =>{
         if (ygkchd[item]) {
@@ -70,7 +70,7 @@ if (isygkcck = typeof $request !== 'undefined') {
 };
 
 !(async () => {
-  if (!ygkchd[0]) {
+  if (!ygkcck[0]) {
     $.msg($.name, '【提示】请先获取睡眠赚数据')
     return;
   } else {ygkcurlArr.push($.getdata('ygkcurl'))
