@@ -70,10 +70,11 @@ if (isygkcck = typeof $request !== 'undefined') {
 };
 
 !(async () => {
-  if (!ygkcck[0]) {
-    $.msg($.name, '【提示】请先获取睡眠赚数据')
-    return;
-  } else {ygkcurlArr.push($.getdata('ygkcurl'))
+  //if (!ygkcck[0]) {
+    //$.msg($.name, '【提示】请先获取睡眠赚数据')
+    //return;
+  //} else 
+  {ygkcurlArr.push($.getdata('ygkcurl'))
     ygkchdArr.push($.getdata('ygkchd'))
     let ygkccount = ($.getval('ygkccount') || '1');
   for (let i = 2; i <= ygkccount; i++) {
