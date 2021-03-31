@@ -98,7 +98,7 @@ if (ishlyyck = typeof $request !== 'undefined') {
     hlyyhdArr.push($.getdata(`hlyyhd${i}`))
     hlyybodyArr.push($.getdata(`hlyybody${i}`))
   }
-    console.log(`------------- 共${hlyyhdArr.length}个账号-------------\n`)
+    //console.log(`------------- 共${hlyyhdArr.length}个账号-------------\n`)
       for (let i = 0; i < hlyyhdArr.length; i++) {
         if (hlyyhdArr[i]) {
           hlyybody = hlyybodyArr[i];
