@@ -1,0 +1,29 @@
+name: 葫芦
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '* */6 * * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        HLYY_HD: ${{ secrets.HLYY_HD }}
+        HLYY_URL: ${{ secrets.HLYY_URL }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行 【葫芦音乐】'
+        if: env.HLYY_HD
+        run: |
+          node Task/hlyy.js
