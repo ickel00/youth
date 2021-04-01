@@ -44,7 +44,7 @@ const hlyyurlArr = [], hlyyhdArr = [],hlyybodyArr = [],hlyycount = ''
 let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
-let hlyybody = $.getdata('hlyybody')
+//let hlyybody = $.getdata('hlyybody')
 let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz=''
 
 
@@ -82,11 +82,7 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
             hlyyurlArr.push(hlyyurl[item])
         }
     });	
-    Object.keys(hlyybody).forEach((item) =>{
-        if (hlyybody[item]) {
-            hlyybodyArr.push(hlyybody[item])
-        }
-    });	
+    hlyybodyArr.push($.getdata('hlyybody'))	
  console.log(` ============= 您共提供${hlyyhdArr.length}个葫芦音乐账号 =============`);
 }
 
