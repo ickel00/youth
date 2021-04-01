@@ -44,7 +44,7 @@ const hlyyurlArr = [], hlyyhdArr = [],hlyybodyArr = [],hlyycount = ''
 let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
-let hlyybody = $.getdata('hlyybody')
+//let hlyybody = $.getdata('hlyybody')
 let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz=''
 
 
