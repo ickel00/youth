@@ -44,7 +44,7 @@ const hlyyurlArr = [], hlyyhdArr = [],hlyybodyArr = [],hlyycount = ''
 let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
-//let hlyybody = $.getdata('hlyybody')
+let hlyybody = $.getdata('hlyybody')
 let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz=''
 
 
@@ -64,13 +64,13 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     } else {
         hlyyurl = [process.env.HLYY_URL]
     };
-	const hlyybody = $.getdata('hlyybody');
+	hlyybody = hlyybody;
 
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime()).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&hlyyhd.indexOf("\n")>-1){
    hlyyhd = hlyyhd.split("&")
    hlyyurl = hlyyurl.split("&")
-   const hlyybody = $.getdata('hlyybody');  
+   hlyybody = hlyybody; 
 };
     Object.keys(hlyyhd).forEach((item) =>{
         if (hlyyhd[item]) {
@@ -82,7 +82,11 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
             hlyyurlArr.push(hlyyurl[item])
         }
     });	
-    hlyybodyArr.push($.getdata('hlyybody'))
+    Object.keys(hlyybody).forEach((item) =>{
+        if (hlyybody[item]) {
+            hlyybodyArr.push(hlyybody[item])
+        }
+    });	
  console.log(` ============= 您共提供${hlyyhdArr.length}个葫芦音乐账号 =============`);
 }
 
