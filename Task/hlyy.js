@@ -64,13 +64,13 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     } else {
         hlyyurl = [process.env.HLYY_URL]
     };
-	hlyybody = hlyybody.split("\n")
+	let hlyybody = $.getdata('hlyybody')
 
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime()).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&hlyyhd.indexOf("\n")>-1){
    hlyyhd = hlyyhd.split("\n")
    hlyyurl = hlyyurl.split("\n")
-   hlyybody = hlyybody.split("\n")
+   let hlyybody = $.getdata('hlyybody')
 };
     Object.keys(hlyyhd).forEach((item) =>{
         if (hlyyhd[item]) {
