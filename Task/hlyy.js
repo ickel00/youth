@@ -65,13 +65,13 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     } else {
         hlyyurl = [process.env.HLYY_URL]
     };
-	let hlyybody = $.getdata('hlyybody')
+	hlyybody = $.getdata('hlyybody')
 
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime()).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&hlyyhd.indexOf("\n")>-1){
    hlyyhd = hlyyhd.split("\n")
    hlyyurl = hlyyurl.split("\n")
-   let hlyybody = $.getdata('hlyybody')
+   hlyybody = $.getdata('hlyybody')
 };
     Object.keys(hlyyhd).forEach((item) =>{
         if (hlyyhd[item]) {
@@ -83,7 +83,7 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
             hlyyurlArr.push(hlyyurl[item])
         }
     });	
-    hlyybodyArr.push($.getdata('hlyybody'))	
+    hlyybodyArr.push($.getdata('hlyybody'));
  console.log(` ============= 您共提供${hlyyhdArr.length}个葫芦音乐账号 =============`);
 }
 
@@ -161,10 +161,10 @@ $.log(hlyybody)
 function hlyylb(timeout = 0) {
   return new Promise((resolve) => {
     setTimeout( ()=>{
-      if (typeof $.getdata('hlyyhd') === "undefined") {
-        $.msg($.name,"",'请先获取葫芦音乐数据!😓',)
-        $.done()
-      }
+      //if (typeof $.getdata('hlyyhd') === "undefined") {
+        //$.msg($.name,"",'请先获取葫芦音乐数据!😓',)
+        //$.done()
+      //}
 
 ut = hlyyurl.match(/ut=(.*)/)[1]
 id = hlyyurl.match(/deviceId=(.+?)&/)[1]
