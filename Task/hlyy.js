@@ -46,7 +46,7 @@ const hlyyurlArr = [], hlyyhdArr = [],hlyybodyArr = [],hlyycount = ''
 let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
-let hlyybody = $.getdata('hlyybody')
+//let hlyybody = $.getdata('hlyybody')
 let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz=''
 
 if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
@@ -65,13 +65,13 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
     } else {
         hlyyurl = [process.env.HLYY_URL]
     };
-	hlyybody = $.getdata('hlyybody')
+	let hlyybody = $.getdata('hlyybody');
 
     console.log(` ============脚本执行 - 北京时间 (UTC + 8)：${new Date(new Date().getTime()).toLocaleString()} =============\n`);
  } else if(!$.isNode()&&hlyyhd.indexOf("\n")>-1){
    hlyyhd = hlyyhd.split("\n")
    hlyyurl = hlyyurl.split("\n")
-   hlyybody = $.getdata('hlyybody')
+   let hlyybody = $.getdata('hlyybody');
 };
     Object.keys(hlyyhd).forEach((item) =>{
         if (hlyyhd[item]) {
@@ -91,9 +91,10 @@ if(!$.isNode()&&hlyyhd.indexOf("\n") ==-1){
   if (ishlyyck = typeof $request !== "undefined") {
     await hlyyck()
    
-  } else {hlyyurlArr.push($.getdata('hlyyurl'))
-    hlyyhdArr.push($.getdata('hlyyhd'))
-    hlyybodyArr.push($.getdata('hlyybody'))
+  } else {
+	  //hlyyurlArr.push($.getdata('hlyyurl'))
+    //hlyyhdArr.push($.getdata('hlyyhd'))
+    //hlyybodyArr.push($.getdata('hlyybody'))
     let hlyycount = ($.getval('hlyycount') || '1');
   for (let i = 2; i <= hlyycount; i++) {
     hlyyurlArr.push($.getdata(`hlyyurl${i}`))
