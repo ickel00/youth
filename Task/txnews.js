@@ -95,7 +95,7 @@ if (isGetCookie) {
             token = signurlVal.split("mac")[1]
             await getsign();
             prizeVal?await open():"";
-            prizeVal?await treesign():"";
+            //prizeVal?await treesign():"";
             await activity();
             await getTotal();
             await $.wait(1000);
