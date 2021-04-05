@@ -99,7 +99,7 @@ if (isGetCookie) {
             await activity();
             await getTotal();
             await $.wait(1000);
-            //await StepsTotal();
+            await StepsTotal();
             await showmsg();
             if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
                 if (readnum % notifyInterval == 0 && cashtotal > 2) {
@@ -360,7 +360,7 @@ function StepsTotal() {
         $.get(Host('activity/info/get?activity_id=' + actid), async(error, resp, data) => {
             totalred = JSON.parse(data);
             //$.log(JSON.stringify(totalred,null,2))
-            totalcion = totalred.data.extends.today_total_coin;
+            totalcion = @totalred.data.extends.today_total_coin;
             if (totalred.ret == 0) {
                 for (awards of totalred.data.award) {
                     taskType = awards.type,
