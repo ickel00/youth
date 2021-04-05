@@ -101,11 +101,11 @@ if (isGetCookie) {
             await $.wait(1000);
             await StepsTotal();
             //await showmsg();
-            if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
-                if (readnum % notifyInterval == 0 && cashtotal > 2) {
-                    await notify.sendNotify($.name, subTile + '\n' + detail)
-                }
-            }
+            //if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
+                //if (readnum % notifyInterval == 0 && cashtotal > 2) {
+                    //await notify.sendNotify($.name, subTile + '\n' + detail)
+                //}
+            //}
         }
     }
 })()
