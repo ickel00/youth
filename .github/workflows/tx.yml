@@ -16,6 +16,7 @@ jobs:
         TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
         TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
         TXNEWS_PRIZE: ${{ secrets.TXNEWS_PRIZE }}
+        TXNEWS_NOTIFY_CONTROL: ${{ secrets.TXNEWS_NOTIFY_CONTROL }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
