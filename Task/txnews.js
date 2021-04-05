@@ -31,6 +31,11 @@ if ($.isNode()) {
     } else {
         VideoUrl = process.env.TXNEWS_VIDEO.split()
     };
+    if (process.env.TXNEWS_PRIZE && process.env.TXNEWS_PRIZE.indexOf('\n') > -1) {
+        prizeUrl = process.env.TXNEWS_PRIZE.split('\n');
+    } else {
+        prizeUrl = process.env.TXNEWS_PRIZE.split()
+    };
     Object.keys(CookieTxnews).forEach((item) => {
         if (CookieTxnews[item]) {
             cookiesArr.push(CookieTxnews[item])
@@ -44,6 +49,11 @@ if ($.isNode()) {
     Object.keys(VideoUrl).forEach((item) => {
         if (VideoUrl[item]) {
             VideoArr.push(VideoUrl[item])
+        }
+    })
+    Object.keys(prizeUrl).forEach((item) => {
+        if (prizeUrl[item]) {
+            prizeArr.push(prizeUrl[item])
         }
     })
 } else {
