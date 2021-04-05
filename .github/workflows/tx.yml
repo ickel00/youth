@@ -1,0 +1,31 @@
+name: txn
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '0 0-15/3 * * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        TXNEWS_COOKIE: ${{ secrets.TXNEWS_COOKIE }}
+        TXNEWS_SIGN: ${{ secrets.TXNEWS_SIGN }}
+        TXNEWS_VIDEO: ${{ secrets.TXNEWS_VIDEO }}
+        TXNEWS_PRIZE: ${{ secrets.TXNEWS_PRIZE }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行 【腾讯新闻】'
+        if: env.TXNEWS_COOKIE
+        run: |
+          node Task/txnews.js
