@@ -232,7 +232,7 @@ function treesign() {
  return new Promise((resolve, reject) => {
   treetoken = prizeVal.split("?")[1]
  let options = {
-     url: 'https://api.prize.qq.com/v1/newsapp/tree/querysign?'+treetoken,
+     url: 'https://api.prize.qq.com/v1/newsapp/tree/sign?'+treetoken,
      headers: Host().headers,
      body: "current_day="+Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000).toString()
  }
