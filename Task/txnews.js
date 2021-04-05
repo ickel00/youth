@@ -32,7 +32,7 @@ if ($.isNode()) {
         VideoUrl = process.env.TXNEWS_VIDEO.split()
     };
     if (process.env.TXNEWS_PRIZE && process.env.TXNEWS_PRIZE.indexOf('\n') > -1) {
-        prizeVal = process.env.TXNEWS_PRIZE.split('\n');
+        prizeVal = process.env.TXNEWS_PRIZE.split('?');
     } else {
         prizeVal = process.env.TXNEWS_PRIZE.split()
     };
@@ -232,7 +232,7 @@ function treesign() {
  return new Promise((resolve, reject) => {
   treetoken = prizeVal.split("?")[1]
  let options = {
-     url: 'https://api.prize.qq.com/v1/newsapp/tree/sign?'+treetoken,
+     url: 'https://api.prize.qq.com/v1/newsapp/tree/querysign?'+treetoken,
      headers: Host().headers,
      body: "current_day="+Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000).toString()
  }
