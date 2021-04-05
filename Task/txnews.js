@@ -99,7 +99,7 @@ if (isGetCookie) {
             await activity();
             await getTotal();
             await $.wait(1000);
-            await StepsTotal();
+            //await StepsTotal();
             await showmsg();
             if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
                 if (readnum % notifyInterval == 0 && cashtotal > 2) {
