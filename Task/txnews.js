@@ -237,16 +237,17 @@ function treesign() {
      body: "current_day="+Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000).toString()
  }
  $.post(url, (error, resp, data) => {
-     if(resp.statusCode ==200){
+     //if(resp.statusCode ==200){
        obj = JSON.parse(data);
        if(obj.code==0){
          amount = obj.data.prize_type=="10" ? "摇钱树签到"+obj.data.prize_num+"经验": "摇钱树签到获得收益"+obj.data.prize_num
          $.log(data)
          $.msg($.name, amount,"")
        }
-     } else if(resp.statusCode !== 403){
+     //} else 
+		 if(resp.statusCode !== 403){
        $.log(JSON.stringify(resp,null,2))
-     }
+     },
      resolve()
     })
   })
