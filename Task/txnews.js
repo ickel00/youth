@@ -247,7 +247,7 @@ function treesign() {
      //} else 
 		 if(resp.statusCode !== 403){
        $.log(JSON.stringify(resp,null,2))
-     },
+     }
      resolve()
     })
   })
