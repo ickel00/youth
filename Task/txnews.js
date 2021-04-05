@@ -369,7 +369,7 @@ function StepsTotal() {
         $.get(Host('activity/info/get?activity_id=' + actid), async(error, resp, data) => {
             totalred = JSON.parse(data);
             //$.log(JSON.stringify(totalred,null,2))
-            totalcion = totalred.data.extends.today_total_coin;
+            totalcion = $.extend(totalred, today_total_coin);
             if (totalred.ret == 0) {
                 for (awards of totalred.data.award) {
                     taskType = awards.type,
