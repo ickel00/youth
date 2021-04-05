@@ -231,25 +231,33 @@ function zhuli() {
 function treesign() {
  return new Promise((resolve, reject) => {
   treetoken = prizeVal.split("?")[1]
- let url = {
+ let options = {
      url: 'https://api.prize.qq.com/v1/newsapp/tree/querysign?'+treetoken,
      headers: Host().headers,
      body: "current_day="+Math.round(new Date(new Date().toLocaleDateString()).getTime()/1000).toString()
  }
- $.post(url, (error, resp, data) => {
-     //if(resp.statusCode ==200){
-       obj = JSON.parse(data);
-       if(obj.code==0){
+ $.post(options, (err, resp, data) => {
+      try {
+        if (err) {
+          console.log(`${JSON.stringify(err)}`)
+          console.log(`${$.name} API请求失败，请检查网路重试`)
+        } else {
+          if (data) {
+            obj = JSON.parse(data);
          amount = obj.data.prize_type=="10" ? "摇钱树签到"+obj.data.prize_num+"经验": "摇钱树签到获得收益"+obj.data.prize_num
          $.log(data)
          $.msg($.name, amount,"")
-       }
-     //} else 
-		 if(resp.statusCode !== 403){
-       $.log(JSON.stringify(resp,null,2))
-     }
-     resolve()
+          } else {
+            console.log(`返回空数据`)
+          }
+        }
+      } catch (e) {
+        $.logErr(e, resp)
+      } finally {
+        resolve();
+      }
     })
+	
   })
 }
 
