@@ -13,7 +13,7 @@ let SignArr = [],SignUrl = "";
     cookiesArr = [],CookieTxnews = "";
     VideoArr = [],SignUrl = "",order = "",
     detail = ``, subTitle = ``;
-    prizeArr = [],prizeUrl= "";
+    prizeArr = [],prizeVal= "";
 let read_finish = "",video_finish="";
 if ($.isNode()) {
     if (process.env.TXNEWS_COOKIE && process.env.TXNEWS_COOKIE.indexOf('&') > -1) {
@@ -32,9 +32,9 @@ if ($.isNode()) {
         VideoUrl = process.env.TXNEWS_VIDEO.split()
     };
     if (process.env.TXNEWS_PRIZE && process.env.TXNEWS_PRIZE.indexOf('\n') > -1) {
-        prizeUrl = process.env.TXNEWS_PRIZE.split('\n');
+        prizeVal = process.env.TXNEWS_PRIZE.split('\n');
     } else {
-        prizeUrl = process.env.TXNEWS_PRIZE.split()
+        prizeVal = process.env.TXNEWS_PRIZE.split()
     };
     Object.keys(CookieTxnews).forEach((item) => {
         if (CookieTxnews[item]) {
@@ -51,9 +51,9 @@ if ($.isNode()) {
             VideoArr.push(VideoUrl[item])
         }
     })
-    Object.keys(prizeUrl).forEach((item) => {
-        if (prizeUrl[item]) {
-            prizeArr.push(prizeUrl[item])
+    Object.keys(prizeVal).forEach((item) => {
+        if (prizeVal[item]) {
+            prizeArr.push(prizeVal[item])
         }
     })
 } else {
@@ -95,7 +95,7 @@ if (isGetCookie) {
             token = signurlVal.split("mac")[1]
             await getsign();
             prizeVal?await open():"";
-            //prizeVal?await treesign():"";
+            prizeVal?await treesign():"";
             await activity();
             await getTotal();
             await $.wait(1000);
@@ -360,7 +360,7 @@ function StepsTotal() {
         $.get(Host('activity/info/get?activity_id=' + actid), async(error, resp, data) => {
             totalred = JSON.parse(data);
             //$.log(JSON.stringify(totalred,null,2))
-            //totalcion = totalred.data.extends.today_total_coin;
+            totalcion = totalred.data.extends.today_total_coin;
             if (totalred.ret == 0) {
                 for (awards of totalred.data.award) {
                     taskType = awards.type,
