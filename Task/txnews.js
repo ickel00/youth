@@ -95,17 +95,17 @@ if (isGetCookie) {
             token = signurlVal.split("mac")[1]
             await getsign();
             prizeVal?await open():"";
-            //prizeVal?await treesign():"";
+            prizeVal?await treesign():"";
             await activity();
             await getTotal();
             await $.wait(1000);
             await StepsTotal();
-            //await showmsg();
-            //if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
-                //if (readnum % notifyInterval == 0 && cashtotal > 2) {
-                    //await notify.sendNotify($.name, subTile + '\n' + detail)
-                //}
-            //}
+            await showmsg();
+            if ($.isNode() && process.env.TXNEWS_NOTIFY_CONTROL) {
+                if (readnum % notifyInterval == 0 && cashtotal > 2) {
+                    await notify.sendNotify($.name, subTile + '\n' + detail)
+                }
+            }
         }
     }
 })()
@@ -360,7 +360,7 @@ function StepsTotal() {
         $.get(Host('activity/info/get?activity_id=' + actid), async(error, resp, data) => {
             totalred = JSON.parse(data);
             //$.log(JSON.stringify(totalred,null,2))
-            //totalcion = totalred.data.extends.today_total_coin;
+            totalcion = totalred.data.extends.today_total_coin;
             if (totalred.ret == 0) {
                 for (awards of totalred.data.award) {
                     taskType = awards.type,
