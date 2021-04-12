@@ -107,7 +107,7 @@ if(!$.isNode()&&ximeihd.indexOf("\n") ==-1){
   } else {
 	  //ximeiurlArr.push($.getdata('ximeiurl'))
     //ximeihdArr.push($.getdata('ximeihd'))
-    //let ximeicount = ($.getval('ximeicount') || '1');
+    let ximeicount = ($.getval('ximeicount') || '1');
   for (let i = 2; i <= ximeicount; i++) {
     ximeiurlArr.push($.getdata(`ximeiurl${i}`))
     ximeihdArr.push($.getdata(`ximeihd${i}`))
@@ -171,7 +171,7 @@ name = result.data[0].data.translatedTitle
         console.log(`\n西梅获取文章列表成功\n文章ID:${id}\n文章标题:${name}\n执行点赞任务`)
 
 
-await ximeidz();      
+await ximeipl();      
         
 } else {
 console.log('西梅获取用户信息失败 已停止当前账号运行!')
@@ -275,11 +275,11 @@ let url = {
 
         console.log('\n西梅阅读成功,获得梅子:'+result.data.point)
         await $.wait(1000);
-        await ximeisp();
+        await ximei1();
 } else {
        console.log('\n西梅阅读失败  '+result.msg)
 await $.wait(1000);
-        await ximeisp();
+        
 }
    
         } catch (e) {
@@ -308,11 +308,12 @@ let url = {
 
         console.log('\n西梅视频成功,获得梅子:'+result.data.point)
         await $.wait(1000);
-        await ximeifx();
+        //await ximeifx();
+        
 } else {
        console.log('\n西梅视频失败  '+result.msg)
 await $.wait(1000);
-        await ximeifx();
+        //await ximeifx();
 }
    
         } catch (e) {
@@ -342,7 +343,7 @@ let url = {
         console.log('\n西梅分享成功,获得梅子:'+result.data.point)
 
         await $.wait(10000);
-        await ximei1();
+        //await ximei1();
 } else {
        console.log('\n西梅分享失败  '+result.msg)
 
