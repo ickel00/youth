@@ -71,7 +71,7 @@ let yqnbbodyVal = ``;
 let middleyqnbBODY = [];
 
 
-if ($.isNode() && process.env.YQNB_yqnbHEADER) {
+if ($.isNode() && process.env.YQNB_HEADER) {
 
     notifyttt = process.env.YQNB_notifyttt || "1";
     notifyInterval = process.env.YQNB_notifyInterval || "2";
@@ -85,12 +85,12 @@ if ($.isNode() && process.env.YQNB_yqnbHEADER) {
     );
 
     if (
-        process.env.YQNB_yqnbHEADER &&
-        process.env.YQNB_yqnbHEADER.indexOf(COOKIES_SPLIT) > -1
+        process.env.YQNB_HEADER &&
+        process.env.YQNB_HEADER.indexOf(COOKIES_SPLIT) > -1
     ) {
-        middleyqnbHEADER = process.env.YQNB_yqnbHEADER.split(COOKIES_SPLIT);
+        middleyqnbHEADER = process.env.YQNB_HEADER.split(COOKIES_SPLIT);
     } else {
-        middleyqnbHEADER = process.env.YQNB_yqnbHEADER.split();
+        middleyqnbHEADER = process.env.YQNB_HEADER.split();
     }
     Object.keys(middleyqnbHEADER).forEach((item) => {
         if (middleyqnbHEADER[item]) {
@@ -99,12 +99,12 @@ if ($.isNode() && process.env.YQNB_yqnbHEADER) {
     });
 
     if (
-        process.env.YQNB_yqnbBODY &&
-        process.env.YQNB_yqnbBODY.indexOf(COOKIES_SPLIT) > -1
+        process.env.YQNB_BODY &&
+        process.env.YQNB_BODY.indexOf(COOKIES_SPLIT) > -1
     ) {
-        middleyqnbBODY = process.env.YQNB_yqnbBODY.split(COOKIES_SPLIT);
+        middleyqnbBODY = process.env.YQNB_BODY.split(COOKIES_SPLIT);
     } else {
-        middleyqnbBODY = process.env.YQNB_yqnbBODY.split();
+        middleyqnbBODY = process.env.YQNB_BODY.split();
     }
     Object.keys(middleyqnbBODY).forEach((item) => {
         if (middleyqnbBODY[item]) {
