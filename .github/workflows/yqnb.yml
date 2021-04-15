@@ -12,8 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event.repository.owner.id == github.event.sender.id
     env:
-        YQNB_yqnbHEADER : ${{ secrets.YQNB_HEADER }}
-        YQNB_yqnbBODY : ${{ secrets.YQNB_BODY }}
+        YQNB_HEADER : ${{ secrets.YQNB_HEADER }}
+        YQNB_BODY : ${{ secrets.YQNB_BODY }}
     steps:
       - uses: actions/checkout@v1
       - name: Use Node.js 14.x
