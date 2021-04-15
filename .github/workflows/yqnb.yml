@@ -1,0 +1,29 @@
+name: 易趣
+
+on:
+  workflow_dispatch:
+  schedule:
+     - cron: '*/30 23,0-15 * * *'
+  watch:
+    types: started
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    if: github.event.repository.owner.id == github.event.sender.id
+    env:
+        YQNB_yqnbHEADER : ${{ secrets.YQNB_HEADER }}
+        YQNB_yqnbBODY : ${{ secrets.YQNB_BODY }}
+    steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js 14.x
+        uses: actions/setup-node@v1
+        with:
+          node-version: 14.x
+      - name: npm install
+        run: |
+          npm install
+      - name: '运行 【易趣牛蒡】'
+        if: env.YQNB_HEADER
+        run: |
+          node Task/yqnb.js
