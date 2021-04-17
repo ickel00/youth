@@ -12,6 +12,9 @@ boxjs链接 https://cdn.jsdelivr.net/gh/ziye888/JavaScript@main/Task/ziye.boxjs.
 >>点击  http://nb.ioxing.com/index.php/Home/Public/login1/newpid/8369  下载APP    谢谢支持
 
 4.14 制作
+4.15.11 修复签到列表报错
+4.16.21 刷新异常，先移除判定
+4.17.0.3 修复视频刷新问题
 
 ⚠️ 时间设置   7 7,27 7-20 * * *    每天 20次 
 ⚠️一共  2个ck  👉 2条 Secrets
@@ -50,7 +53,7 @@ http-request http:\/\/nb\.ioxing\.com\/* script-path=https://cdn.jsdelivr.net/gh
 
 
 
-GXRZ = '4.14 制作'
+GXRZ = '4.17.0.3 修复视频刷新问题'
 const $ = Env("易趣牛帮");
 $.idx = ($.idx = ($.getval('yqnbSuffix') || '1') - 1) > 0 ? ($.idx + 1 + '') : ''; // 账号扩展字符
 const notify = $.isNode() ? require("./sendNotify") : ``;
@@ -408,16 +411,29 @@ async function all() {
                 };
                 yqnbbody = `boud=0&uid=${yqnbbodyVal}`
 
-                DD = RT(20000, 30000)
+                DD = RT(2000, 3000)
                 console.log(`随机延迟${DD/1000}秒`)
                 await $.wait(DD)
                 await task();
+            }
+
+            if ($.signlist.sign.isdouble == 0) {
+                K = `签到加倍🚩`;
+                yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/sign`
+                yqnbheader = {
+                    'Cookie': `${yqnbheaderVal}`,
+                    'Content-Type': `application/x-www-form-urlencoded`,
+                    'Host': `nb.ioxing.com`,
+                };
                 yqnbbody = `boud=1&uid=${yqnbbodyVal}`
                 DD = RT(20000, 30000)
                 console.log(`随机延迟${DD/1000}秒`)
                 await $.wait(DD)
                 await task();
             }
+
+
+
             K = `任务页🚩`;
             yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/V2qiandaoList`
             yqnbheader = {
@@ -426,25 +442,11 @@ async function all() {
                 'Host': `nb.ioxing.com`,
             };
             yqnbbody = `aid=niubang1234&uid=${yqnbbodyVal}`
-
             await task();
 
-            if ($.signlist.sign.dayqd == 0) {
-                K = `分享朋友圈🚩`;
-                yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/obtainJifen`
-                yqnbheader = {
-                    'Cookie': `${yqnbheaderVal}`,
-                    'Content-Type': `application/x-www-form-urlencoded`,
-                    'Host': `nb.ioxing.com`,
-                };
-                yqnbbody = `banid=31&type=4&uid=${yqnbbodyVal}`
 
-                DD = RT(2000, 3000)
-                console.log(`随机延迟${DD/1000}秒`)
-                await $.wait(DD)
-                await task();
-            }
-            if (taskvideo.countnum != taskvideo.allcount) {
+            if ($.signlist.sign.isdouble == 0) {
+
                 K = `视频🚩`;
                 yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/viodeqd`
                 yqnbheader = {
@@ -459,6 +461,42 @@ async function all() {
                 await $.wait(DD)
                 await task();
             }
+
+            if ($.signlist.sign.isdouble == 0) {
+                K = `分享朋友圈🚩`;
+                yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/obtainJifen`
+                yqnbheader = {
+                    'Cookie': `${yqnbheaderVal}`,
+                    'Content-Type': `application/x-www-form-urlencoded`,
+                    'Host': `nb.ioxing.com`,
+                };
+                yqnbbody = `banid=31&type=4&uid=${yqnbbodyVal}`
+
+                DD = RT(2000, 3000)
+                console.log(`随机延迟${DD/1000}秒`)
+                await $.wait(DD)
+                await task();
+            }
+
+
+            if (taskvideo.countnum != taskvideo.allcount) {
+
+                K = `视频🚩`;
+                yqnburl = `http://nb.ioxing.com/index.php/Home/Appapi/viodeqd`
+                yqnbheader = {
+                    'Cookie': `${yqnbheaderVal}`,
+                    'Content-Type': `application/x-www-form-urlencoded`,
+                    'Host': `nb.ioxing.com`,
+                };
+                yqnbbody = `adid=32&uid=${yqnbbodyVal}`
+
+                DD = RT(20000, 30000)
+                console.log(`随机延迟${DD/1000}秒`)
+                await $.wait(DD)
+                await task();
+            }
+
+
             K = `报名页🚩`;
             yqnburl = `http://nb.ioxing.com/index.php/Home/AppActiv/activyinfo`
             yqnbheader = {
@@ -576,8 +614,10 @@ function task() {
                             $.signlist = JSON.parse(data);
                             if ($.signlist.code == 1) {
                                 signlistinfo = $.signlist.data.find(item => item.id == $.signlist.sign.day);
-                                console.log(`签到列表：今日${signlistinfo.titlle},${signlistinfo.price}积分\n`)
-                                $.message += `【签到列表】：今日${signlistinfo.titlle},${signlistinfo.price}积分\n`;
+                                if (signlistinfo.titlle) {
+                                    console.log(`签到列表：今日${signlistinfo.titlle},${signlistinfo.price}积分\n`)
+                                    $.message += `【签到列表】：今日${signlistinfo.titlle},${signlistinfo.price}积分\n`;
+                                }
                             }
                         }
 
@@ -590,6 +630,15 @@ function task() {
                             }
                         }
 
+                        if (K == `签到加倍🚩`) {
+                            if (logs) $.log(`${O}, ${K}: ${format(data)}`);
+                            $.signs = JSON.parse(data);
+                            if ($.signs.code == 1) {
+                                console.log(`签到加倍：${$.signs.msg}\n`)
+                                $.message += `【签到加倍】：${$.signs.msg}\n`;
+                            }
+                        }
+
                         if (K == `任务页🚩`) {
 
 
@@ -599,8 +648,12 @@ function task() {
                             if ($.task.code == 1) {
                                 taskfxpyq = $.task.data.find(item => item.id === "31");
                                 taskvideo = $.task.data.find(item => item.id === "32");
-                                console.log(`任务页：${taskfxpyq.title},${taskfxpyq.point}积分，${taskvideo.title},${taskvideo.point}积分,进度：${taskvideo.countnum}/${taskvideo.allcount}\n`)
-                                $.message += `【任务页】：${taskfxpyq.title},${taskfxpyq.point}积分，${taskvideo.title},${taskvideo.point}积分,进度：${taskvideo.countnum}/${taskvideo.allcount}\n`;
+                                if ($.signlist.sign.isdouble == 1) {
+                                    console.log(`任务页：${taskfxpyq.title},${taskfxpyq.point}积分，${taskvideo.title},${taskvideo.point}积分,进度：${taskvideo.countnum}/${taskvideo.allcount}\n`)
+                                    $.message += `【任务页】：${taskfxpyq.title},${taskfxpyq.point}积分，${taskvideo.title},${taskvideo.point}积分,进度：${taskvideo.countnum}/${taskvideo.allcount}\n`;
+                                }
+
+
                             }
                         }
 
