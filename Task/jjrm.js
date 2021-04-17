@@ -41,8 +41,6 @@ hostname = nine.xj618.cn
 
 */
 
-const $ = new Env('九斤人脉');
-
 let jjrmurl = $.getdata('jjrmurl')
 let jjrmhd = $.getdata('jjrmhd')
 
