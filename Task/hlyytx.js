@@ -100,7 +100,7 @@ let txje = txsz[hltxje]
           //await $.wait(3000);
           await hlyyxx()
           await hlyyme()
-		for (let j = 0; j < 60; ++j)
+		for (let j = 0; j < 20; ++j)
           await hlyytx()
   }
 }}
