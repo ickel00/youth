@@ -55,7 +55,7 @@ let txsz = ['','BsjB-5WE54sKKCP0kIMORs1WbWzmM5gRg','0r7ipKknU4gqurOo71KH2kPFzkwl
 let hltxje = ($.getval('hltxje') || '1');
 let txje = txsz[hltxje]
 
-const T = ${new Date().getTime()} + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000};
+let T = ${new Date().getTime()} + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000};
 
 !(async () => {
   if (typeof $request !== "undefined") {
