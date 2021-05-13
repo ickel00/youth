@@ -82,7 +82,7 @@ let txje = txsz[hltxje]
           await $.wait(1000);
           await hlyyqd()
           await $.wait(3000);
-		  await hlyyzp()
+		  //await hlyyzp()
           await hlyyqdfb()
           await $.wait(3000);
           await hlyygg()
