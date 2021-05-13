@@ -54,7 +54,6 @@ let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz='',tgfb='',us
 let txsz = ['','BsjB-5WE54sKKCP0kIMORs1WbWzmM5gRg','0r7ipKknU4gqurOo71KH2kPFzkwlohZws','0r7ipKknU4g2s8ACTG4DbU1QFpcUgueU4','pQKf_KdmjH4pS_070l0fhYH0Hs6ltsads','pQKf_KdmjH4hSrW79J7WyU1WbWzmM5gRg'];
 let hltxje = ($.getval('hltxje') || '1');
 let txje = txsz[hltxje]
-//let ut = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k'
 
 !(async () => {
   if (typeof $request !== "undefined") {
