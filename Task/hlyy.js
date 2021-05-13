@@ -713,12 +713,12 @@ let url = {
 'Origin' : `http://hlapph5.gxhuancai.com`,
 'Connection' : `keep-alive`,
 'Accept' : `application/json;charset=utf-8`,
-'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${token}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
+'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
 'Host' : `play.gxhuancai.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
+'timestamp' : `1620887091918`
 },
 
 }
@@ -767,7 +767,7 @@ let url = {
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
+'timestamp' : `1620887162727`
 },
 
 }
