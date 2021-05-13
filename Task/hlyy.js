@@ -54,6 +54,7 @@ let ut = '',id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz='',tgfb=''
 let txsz = ['','BsjB-5WE54sKKCP0kIMORs1WbWzmM5gRg','0r7ipKknU4gqurOo71KH2kPFzkwlohZws','0r7ipKknU4g2s8ACTG4DbU1QFpcUgueU4','pQKf_KdmjH4pS_070l0fhYH0Hs6ltsads','pQKf_KdmjH4hSrW79J7WyU1WbWzmM5gRg'];
 let hltxje = ($.getval('hltxje') || '1');
 let txje = txsz[hltxje]
+let ut = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k'
 
 !(async () => {
   if (typeof $request !== "undefined") {
@@ -82,7 +83,8 @@ let txje = txsz[hltxje]
           await $.wait(1000);
           await hlyyqd()
           await $.wait(3000);
-		  //await hlyyzp()
+		  await hlyyzp()
+		  await $.wait(3000);
           await hlyyqdfb()
           await $.wait(3000);
           await hlyygg()
@@ -139,10 +141,10 @@ function hlyylb(timeout = 0) {
         $.done()
       }
 
-ut = hlyyurl.match(/ut=(.*)/)[1]
+//ut = hlyyurl.match(/ut=(.*)/)[1]
 id = hlyyurl.match(/deviceId=(.+?)&/)[1]
 let url = {
-        url : `https://play.gxhuancai.com/hlplay/task/getTaskList?av=1.1.3&ut=${ut}`,
+        url : `https://play.gxhuancai.com/hlplay/task/getTaskList?av=1.1.71&ut=${ut}`,
         headers : JSON.parse(hlyyhd),
 }
       $.get(url, async (err, resp, data) => {
@@ -704,21 +706,21 @@ let url = {
 }
 
 //葫芦音乐转盘
-function hlyyzp(token) {
+function hlyyzp() {
   return new Promise((resolve) => {
 let url = {
-        url : `http://play.gxhuancai.com/hlplay/activity/getDialLotto?ut=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k`,
+        url : `http://play.gxhuancai.com/hlplay/activity/getDialLotto?ut=${ut}`,
         headers : {
 'Accept-Encoding' : `gzip, deflate`,
 'Origin' : `http://hlapph5.gxhuancai.com`,
 'Connection' : `keep-alive`,
 'Accept' : `application/json;charset=utf-8`,
-'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
+'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
 'Host' : `play.gxhuancai.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `1620887091918`
+'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
 },
 
 }
@@ -762,12 +764,12 @@ let url = {
 'Origin' : `http://hlapph5.gxhuancai.com`,
 'Connection' : `keep-alive`,
 'Accept' : `application/json;charset=utf-8`,
-'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
+'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
 'Host' : `play.gxhuancai.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `1620887162727`
+'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
 },
 
 }
