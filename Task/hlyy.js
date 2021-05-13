@@ -55,8 +55,6 @@ let txsz = ['','BsjB-5WE54sKKCP0kIMORs1WbWzmM5gRg','0r7ipKknU4gqurOo71KH2kPFzkwl
 let hltxje = ($.getval('hltxje') || '1');
 let txje = txsz[hltxje]
 
-let T = ${new Date().getTime()} + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000};
-
 !(async () => {
   if (typeof $request !== "undefined") {
     await hlyyck()
@@ -720,7 +718,7 @@ let url = {
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${T}`
+'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
 },
 
 }
@@ -769,7 +767,7 @@ let url = {
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${T}`
+'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
 },
 
 }
