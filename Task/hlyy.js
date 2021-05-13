@@ -721,7 +721,7 @@ let url = {
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
+'timestamp' : `${new Date().getTime()}`
 },
 
 }
@@ -770,7 +770,7 @@ let url = {
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
 'Accept-Language' : `zh-cn`,
-'timestamp' : `${new Date().getTime() + new Date().getTimezoneOffset() * 60 * 1000 + 8 * 60 * 60 * 1000}`
+'timestamp' : `${new Date().getTime()}`
 },
 
 }
