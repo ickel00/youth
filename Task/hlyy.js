@@ -50,12 +50,11 @@ let times = Math.round(Date.now())
 let hlyyurl = $.getdata('hlyyurl')
 let hlyyhd = $.getdata('hlyyhd')
 let hlyybody = $.getdata('hlyybody')
-//let ut = '',
-let id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz='',tgfb=''
+let ut = '', id = '',qd='',qdfb='',gg='',sp='',fx='',zs='',tg='',wz='',tgfb=''
 let txsz = ['','BsjB-5WE54sKKCP0kIMORs1WbWzmM5gRg','0r7ipKknU4gqurOo71KH2kPFzkwlohZws','0r7ipKknU4g2s8ACTG4DbU1QFpcUgueU4','pQKf_KdmjH4pS_070l0fhYH0Hs6ltsads','pQKf_KdmjH4hSrW79J7WyU1WbWzmM5gRg'];
 let hltxje = ($.getval('hltxje') || '1');
 let txje = txsz[hltxje]
-let ut = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k'
+//let ut = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k'
 
 !(async () => {
   if (typeof $request !== "undefined") {
@@ -92,10 +91,10 @@ let ut = 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiL
           await $.wait(3000);
           await hlyysp()
           await $.wait(3000);
-          await hlyyfx()
-          await $.wait(3000);
-          await hlyyfxpj()
-          await $.wait(3000);
+          //await hlyyfx()
+          //await $.wait(3000);
+          //await hlyyfxpj()
+          //await $.wait(3000);
           await hlyytg()
           await $.wait(3000);
           await hlyytgfb()
@@ -142,7 +141,7 @@ function hlyylb(timeout = 0) {
         $.done()
       }
 
-//ut = hlyyurl.match(/ut=(.*)/)[1]
+ut = hlyyurl.match(/ut=(.*)/)[1]
 id = hlyyurl.match(/deviceId=(.+?)&/)[1]
 let url = {
         url : `https://play.gxhuancai.com/hlplay/task/getTaskList?av=1.1.71&ut=${ut}`,
@@ -157,11 +156,12 @@ let url = {
 qd = result.data.pagelist[0].taskCode 
 qdfb = result.data.pagelist[0].secTaskVoList[0].taskCode
 gg = result.data.pagelist[1].taskCode
-sp = result.data.pagelist[4].taskCode
-fx = result.data.pagelist[5].taskCode
-zs = result.data.pagelist[3].taskCode
-tg = result.data.pagelist[2].taskCode
-tgfb = result.data.pagelist[2].secTaskVoList[0].taskCode      
+sp = result.data.pagelist[7].taskCode
+//fx = result.data.pagelist[5].taskCode
+zs = result.data.pagelist[5].taskCode
+tg = result.data.pagelist[3].taskCode
+tgfb = result.data.pagelist[3].secTaskVoList[0].taskCode
+usrid = result.data.userCode      
 
 } else {
 $.log(data)
@@ -716,7 +716,7 @@ let url = {
 'Origin' : `http://hlapph5.gxhuancai.com`,
 'Connection' : `keep-alive`,
 'Accept' : `application/json;charset=utf-8`,
-'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
+'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=${usrid}&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
 'Host' : `play.gxhuancai.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
@@ -759,13 +759,13 @@ let url = {
 function hlyyzp2(timeout = 0) {
   return new Promise((resolve) => {
 let url = {
-        url : `http://play.gxhuancai.com/hlplay/activity/getExtraDialLotto?ut=eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI4MDY1NTY2Mjc1OTEzNzExNjE2Iiwic3ViIjoiLXBtRXI5TGZONmtNQzFjVzZMb3BqRTFXYld6bU01Z1JnIiwiaWF0IjoxNjE5MzkxODk4LCJleHAiOjE2MjcxNjc4OTh9.SNPrBWiadh8w0Lfr5fAqsgzPOS7evUbn1baNHybGD2k&logId=8081068540070002688`,
+        url : `http://play.gxhuancai.com/hlplay/activity/getExtraDialLotto?ut=${ut}&logId=8081068540070002688`,
         headers : {
 'Accept-Encoding' : `gzip, deflate`,
 'Origin' : `http://hlapph5.gxhuancai.com`,
 'Connection' : `keep-alive`,
 'Accept' : `application/json;charset=utf-8`,
-'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=-pmEr9LfN6kMC1cW6LopjE1WbWzmM5gRg&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
+'Referer' : `http://hlapph5.gxhuancai.com/html/activity/lottory.html?token=${ut}&app_info=1.1.71,ios,13.6.1,appstore,com.xiaoniu.hulumusic&user_id=${usrid}&ns_uuid=&plus_uuid=A494D771-D6DE-4FF6-BE1D-325C3C3561D7`,
 'Host' : `play.gxhuancai.com`,
 'User-Agent' : `Mozilla/5.0 (iPhone; CPU iPhone OS 13_6_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148`,
 'app_info' : ``,
