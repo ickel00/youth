@@ -85,7 +85,7 @@ function health_exchange() {
           if (safeGet(data)) {
             const result = JSON.parse(data);
 			//console.log(`兑换结果：${JSON.stringify(result)}\n`)
-			console.log(兑换结果：`%s ！`,result.data.bizMsg)
+			console.log(`兑换结果：%s ！`,result.data.bizMsg)
           }
         }
       } catch (e) {
