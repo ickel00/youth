@@ -109,7 +109,7 @@ function product_list() {
           if (safeGet(data)) {
             const list = JSON.parse(data);
 			//console.log(list)
-			//console.log(list.data.result)
+			console.log(list.data.result)
 			for (let m = 0; m < list.data.result.jBeans.length; m++){
 				console.log(`兑换 %d京豆 需要健康能量 %d !`,list.data.result.jBeans[m].title,list.data.result.jBeans[m].exchangePoints)
 				if (product_name == `${list.data.result.jBeans[m].title}`){
