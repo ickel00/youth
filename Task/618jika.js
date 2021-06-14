@@ -66,8 +66,8 @@ function get_token() {
         } else {
           if (safeGet(data)) {
             const result = JSON.parse(data);
-			//console.log(`${JSON.stringify(result)}`)
-			if (result.code === "0") {
+			console.log(`token结果：${JSON.stringify(result)}`)
+			if (result.code === `0`) {
 				$.token = result.token
 				await do_login()
 			}
@@ -92,8 +92,8 @@ function do_login() {
         } else {
           if (safeGet(data)) {
             const result = JSON.parse(data);
-			//console.log(`${JSON.stringify(result)}`)
-			if (result.is_new == 0) {
+			console.log(`登入结果：${JSON.stringify(result)}`)
+			if (result.is_new === 0) {
 				$.access_token = result.access_token
 				$.token_type = result.token_type
 				await list()
