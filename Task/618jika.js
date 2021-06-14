@@ -177,7 +177,7 @@ function token() {
 function login() {
   return {
     url: `https://xinruimz1-isv.isvjcloud.com/mlyjyapi/jd-user-info`,
-    body: `{"token":"${$.tokne}","source":"01"}`,
+    body: JSON.stringify({"token":"${$.tokne}","source":"01"}),
     headers: {
 	  'Cookie': cookie,
 	  'Source' : `02`,
