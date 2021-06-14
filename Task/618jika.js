@@ -92,6 +92,7 @@ function do_login() {
         } else {
           if (safeGet(data)) {
             const result = JSON.parse(data);
+			console.log(headers.cookie)
 			console.log(result)
 			if (result.is_new === 0) {
 				$.access_token = result.access_token
