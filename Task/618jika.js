@@ -147,7 +147,7 @@ function basic(type,body) {
       'Accept' : `application/x.jd-cosmetic-618.v1+json`,
       'User-Agent' : $.isNode() ? (process.env.JD_USER_AGENT ? process.env.JD_USER_AGENT : (require('./USER_AGENTS').USER_AGENT)) : ($.getdata('JDUA') ? $.getdata('JDUA') : "jdapp;iPhone;10.0.2;14.3;network/4g;Mozilla/5.0 (iPhone; CPU iPhone OS 14_3 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Mobile/15E148;supportJDSHWK/1"),
 	  'Authorization': `Bearer ${$.access_token}`,
-	  'Referer' : ``https://xinruimz1-isv.isvjcloud.com/mlyjy/`,
+	  'Referer' : `https://xinruimz1-isv.isvjcloud.com/mlyjy/`,
       'accept-language': `zh-cn`
     }
   }
