@@ -58,8 +58,23 @@ if ($.isNode()) {
 
 //get_token
 function get_token() {
+  let option = {
+    url: `https://api.m.jd.com/client.action?functionId=isvObfuscator`,
+    body: `body=%7B%22url%22%3A%22https%3A%5C/%5C/xinruimz1-isv.isvjcloud.com%22%2C%22id%22%3A%22%22%7D&build=167694&client=apple&clientVersion=10.0.2&d_brand=apple&d_model=iPhone8%2C2&eid=ZNGGFOATZYF7XGO2XXNIKZO5J45ST5YPWGVDPYO6WWKUUC24AEUAZGDL4WL5YOAJJMDV434E5J2SNAZQKX3LQV52GWOBX2ET7F5SYHUYG7HDB6HJX7FQ&isBackground=N&joycious=65&lang=zh_CN&networkType=wifi&networklibtype=JDNetworkBaseAF&openudid=d1e42ce4f0bf85d182339404bfd394c1c1581e7d&osVersion=13.6.1&partner=apple&rfs=0000&scope=10&screen=1125%2A2001&sign=05f826696e7823fe2592f6875e8ba66a&st=1623676348313&sv=111&uemps=0-0&uts=0f31TVRjBSsqndu4/jgUPz6uymy50MQJBfnveeoiuNJqg4KM2tEpZMlD8Dgoy/MQRbgtp142PM6%2BZcZUlyD2MMYOkkPvTjkpg/KA%2BGbZGbswt/ju/iMbPWnbUND%2BRnDUh0qDcC4xIY2WAkcAXmqjMHuxEUekJbHyVhnuC2nHp0l%2BCJqkyJkgmrR%2B0utt4isvHDB94zXCcvU535QIoF2X7g%3D%3D&uuid=hjudwgohxzVu96krv/T6Hg%3D%3D&wifiBssid=9ffe3d98f51027059670836d6cc7579a`,
+    headers: {
+	  'Cookie': cookie,
+	  'Accept-Encoding' : `gzip, deflate, br`,
+	  'Connection' : `keep-alive`,
+	  'Content-Type' : `application/x-www-form-urlencoded`,
+	  'Host' : `api.m.jd.com`,
+      'Accept' : `*/*`,
+      'User-Agent' : `JD4iPhone/167694 (iPhone; iOS 13.6.1; Scale/3.00)`,
+	  'Referer' : ``,
+      'accept-language': `zh-Hans-HK;q=1, ja-JP;q=0.9, zh-Hant-HK;q=0.8, yue-Hant-HK;q=0.7`
+    }
+  }
   return new Promise(resolve => {
-    $.get(token(), async (err, resp, data) => {
+    $.post(option, async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${$.name} API请求失败，请检查网路重试`)
@@ -85,7 +100,7 @@ function get_token() {
 //do_login
 function do_login() {
   return new Promise(resolve => {
-    $.get(login(), async (err, resp, data) => {
+    $.post(login(), async (err, resp, data) => {
       try {
         if (err) {
           console.log(`${$.name} API请求失败，请检查网路重试`)
