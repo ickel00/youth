@@ -92,7 +92,7 @@ function do_login() {
         } else {
           if (safeGet(data)) {
             const result = JSON.parse(data);
-			console.log(`登入结果：${JSON.stringify(result)}`)
+			console.log(result)
 			if (result.is_new === 0) {
 				$.access_token = result.access_token
 				console.log(`Bearer ${$.access_token}`)
