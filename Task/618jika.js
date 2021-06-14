@@ -92,8 +92,9 @@ function do_login() {
         } else {
           if (safeGet(data)) {
             const result = JSON.parse(data);
+			const headers = JSON.parse(headers)
 			console.log(`ck为：${headers.cookie}`)
-			console.log(JSON.stringify(result))
+			console.log(result)
 			if (result.is_new === 0) {
 				$.access_token = result.access_token
 				console.log(`Bearer ${$.access_token}`)
